@@ -51,7 +51,7 @@ eventosEspeciales(btnPoint, "P");
 eventoNumero(btn0, 0);
 btnEqual.addEventListener("click",(e)=>{
     let resultado;
-    if(num2 !== ""){
+    if(num1 !== "" && num2 !== ""){
         num2 = display.textContent;
         switch(operador){
             case "+":
@@ -81,12 +81,15 @@ btnEqual.addEventListener("click",(e)=>{
 
 function eventoNumero(btn, text){
     btn.addEventListener("click",(e)=>{
+        if(display.innerHTML === "Error"){
+            display.innerHTML = "";
+        }
         display.innerHTML += text
     });
 }
 
 function eventoOperaciones(btn, ope){
-    if(num1 !== ""){
+    if(num1 !== "" && num2 !== ""){
         btn.addEventListener("click",(e)=>{
             num1 = display.textContent;
             operador = ope;
